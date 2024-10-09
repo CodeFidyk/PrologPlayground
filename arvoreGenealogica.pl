@@ -1,17 +1,21 @@
-% Definindo fatos (base de conhecimento)
-pai(jose, maria).
-pai(jose, joao).
-mae(ana, maria).
-mae(ana, joao).
+% Fatos
+pai(jose, ana).
+pai(jose, carlos).
+pai(joao, jose).
+pai(joao, maria).
+mae(maria, ana).
+mae(maria, carlos).
+mae(julia, jose).
+mae(julia, maria).
 
-% Definindo uma regra (relação)
-irmao(X, Y) :-
-    pai(P, X),
-    pai(P, Y),
-    mae(M, X),
-    mae(M, Y),
-    X \= Y.  % X e Y devem ser diferentes (não pode ser a mesma pessoa)
+% Regras
+avo(X, Y) :- pai(X, Z), pai(Z, Y).
+avo(X, Y) :- pai(X, Z), mae(Z, Y).
+avo(X, Y) :- mae(X, Z), pai(Z, Y).
+avo(X, Y) :- mae(X, Z), mae(Z, Y).
 
-% Consulta exemplo
-% Quem é irmão de Maria?
-% A resposta esperada é'João'.
+irmao(X, Y) :- pai(P, X), pai(P, Y), mae(M, X), mae(M, Y), X \= Y.
+
+% Exemplos de consultas
+% ?- avo(X, ana).
+% ?- irmao(carlos, X).
