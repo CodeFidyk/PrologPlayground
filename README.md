@@ -50,6 +50,6 @@ Para executar os exemplos de código em Prolog:
 
 Para mais informações ou dúvidas sobre o seminário, entre em contato:
 
-- **Nome do Apresentador**: [Seu Nome]
-- **Email**: [seu-email@example.com]
+- **Nome do Apresentador**: [Daniel F.]
+
 
